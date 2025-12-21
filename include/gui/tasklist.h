@@ -1,5 +1,5 @@
 #pragma once
-#include "task.h"
+#include "app/task.h"
 #include <wx/wx.h>
 
 class TaskListPanel : public wxScrolled<wxPanel> {

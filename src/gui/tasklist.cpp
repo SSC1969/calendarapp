@@ -1,5 +1,5 @@
 #include "gui/tasklist.h"
-#include "task.h"
+#include "app/task.h"
 #include <wx/sizer.h>
 #include <wx/string.h>
 #include <wx/wx.h>
@@ -29,7 +29,7 @@ void TaskListPanel::createControls() {
         sizer->Add(task_panel, todo_flags);
     }
 
-    SetSizer(sizer);
+    SetSizerAndFit(sizer);
 }
 
 void TaskListPanel::setUpSizers() {}
