@@ -6341,3 +6341,843 @@ events:
       CMAKE_SYSTEM_INCLUDE_PATH:
         - "/usr/include/X11"
 ...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:1138 (find_library)"
+      - "CMakeLists.txt:10 (find_package)"
+    mode: "library"
+    variable: "_wx_lib_found"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "wx_gtk3u_core-3.3"
+    candidate_directories:
+      - "/usr/local/lib/"
+      - "/home/pankake/.local/bin/"
+      - "/home/pankake/.local/share/nvim/mason/bin/"
+      - "/home/pankake/.cargo/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/var/lib/flatpak/exports/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    found: "/usr/local/lib/libwx_gtk3u_core-3.3.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:1138 (find_library)"
+      - "CMakeLists.txt:10 (find_package)"
+    mode: "library"
+    variable: "_wx_lib_found"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "wx_baseu-3.3"
+    candidate_directories:
+      - "/usr/local/lib/"
+      - "/home/pankake/.local/bin/"
+      - "/home/pankake/.local/share/nvim/mason/bin/"
+      - "/home/pankake/.cargo/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/var/lib/flatpak/exports/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    found: "/usr/local/lib/libwx_baseu-3.3.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:374 (find_file)"
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:1157 (wx_extract_version)"
+      - "CMakeLists.txt:10 (find_package)"
+    mode: "file"
+    variable: "_wx_filename"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "wx/version.h"
+    candidate_directories:
+      - "/usr/local/lib/wx/include/gtk3-unicode-3.3/"
+      - "/usr/local/include/wx-3.3/"
+    searched_directories:
+      - "/usr/local/lib/wx/include/gtk3-unicode-3.3/wx/version.h"
+    found: "/usr/local/include/wx-3.3/wx/version.h"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/usr/include/X11"
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:1138 (find_library)"
+      - "CMakeLists.txt:10 (find_package)"
+    mode: "library"
+    variable: "_wx_lib_found"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "wx_gtk3u_core-3.3"
+    candidate_directories:
+      - "/usr/local/lib/"
+      - "/home/pankake/.local/bin/"
+      - "/home/pankake/.local/share/nvim/mason/bin/"
+      - "/home/pankake/.cargo/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/var/lib/flatpak/exports/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    found: "/usr/local/lib/libwx_gtk3u_core-3.3.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:1138 (find_library)"
+      - "CMakeLists.txt:10 (find_package)"
+    mode: "library"
+    variable: "_wx_lib_found"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "wx_baseu-3.3"
+    candidate_directories:
+      - "/usr/local/lib/"
+      - "/home/pankake/.local/bin/"
+      - "/home/pankake/.local/share/nvim/mason/bin/"
+      - "/home/pankake/.cargo/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/var/lib/flatpak/exports/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    found: "/usr/local/lib/libwx_baseu-3.3.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:374 (find_file)"
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:1157 (wx_extract_version)"
+      - "CMakeLists.txt:10 (find_package)"
+    mode: "file"
+    variable: "_wx_filename"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "wx/version.h"
+    candidate_directories:
+      - "/usr/local/lib/wx/include/gtk3-unicode-3.3/"
+      - "/usr/local/include/wx-3.3/"
+    searched_directories:
+      - "/usr/local/lib/wx/include/gtk3-unicode-3.3/wx/version.h"
+    found: "/usr/local/include/wx-3.3/wx/version.h"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/usr/include/X11"
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:1138 (find_library)"
+      - "CMakeLists.txt:10 (find_package)"
+    mode: "library"
+    variable: "_wx_lib_found"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "wx_gtk3u_core-3.3"
+    candidate_directories:
+      - "/usr/local/lib/"
+      - "/home/pankake/.local/bin/"
+      - "/home/pankake/.local/share/nvim/mason/bin/"
+      - "/home/pankake/.cargo/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/var/lib/flatpak/exports/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    found: "/usr/local/lib/libwx_gtk3u_core-3.3.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:1138 (find_library)"
+      - "CMakeLists.txt:10 (find_package)"
+    mode: "library"
+    variable: "_wx_lib_found"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "wx_baseu-3.3"
+    candidate_directories:
+      - "/usr/local/lib/"
+      - "/home/pankake/.local/bin/"
+      - "/home/pankake/.local/share/nvim/mason/bin/"
+      - "/home/pankake/.cargo/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/var/lib/flatpak/exports/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    found: "/usr/local/lib/libwx_baseu-3.3.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:374 (find_file)"
+      - "/usr/share/cmake/Modules/FindwxWidgets.cmake:1157 (wx_extract_version)"
+      - "CMakeLists.txt:10 (find_package)"
+    mode: "file"
+    variable: "_wx_filename"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "wx/version.h"
+    candidate_directories:
+      - "/usr/local/lib/wx/include/gtk3-unicode-3.3/"
+      - "/usr/local/include/wx-3.3/"
+    searched_directories:
+      - "/usr/local/lib/wx/include/gtk3-unicode-3.3/wx/version.h"
+    found: "/usr/local/include/wx-3.3/wx/version.h"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/usr/include/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:517 (find_program)"
+      - "/usr/share/cmake/Modules/FindSQLite3.cmake:61 (find_package)"
+      - "CMakeLists.txt:11 (find_package)"
+    mode: "program"
+    variable: "PKG_CONFIG_EXECUTABLE"
+    description: "pkg-config executable"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "pkg-config"
+      - "pkgconf"
+    candidate_directories:
+      - "/home/pankake/.local/bin/"
+      - "/home/pankake/.local/share/nvim/mason/bin/"
+      - "/home/pankake/.cargo/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/var/lib/flatpak/exports/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pankake/.local/bin/pkg-config"
+      - "/home/pankake/.local/bin/pkgconf"
+      - "/home/pankake/.local/share/nvim/mason/bin/pkg-config"
+      - "/home/pankake/.local/share/nvim/mason/bin/pkgconf"
+      - "/home/pankake/.cargo/bin/pkg-config"
+      - "/home/pankake/.cargo/bin/pkgconf"
+      - "/usr/local/sbin/pkg-config"
+      - "/usr/local/sbin/pkgconf"
+      - "/usr/local/bin/pkg-config"
+      - "/usr/local/bin/pkgconf"
+    found: "/usr/bin/pkg-config"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:761 (find_library)"
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:811 (_pkg_find_libs)"
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:1149 (_pkg_recalculate)"
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:1166 (_pkg_check_modules_internal)"
+      - "/usr/share/cmake/Modules/FindSQLite3.cmake:63 (pkg_check_modules)"
+      - "CMakeLists.txt:11 (find_package)"
+    mode: "library"
+    variable: "pkgcfg_lib_PC_SQLite3_sqlite3"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "sqlite3"
+    candidate_directories:
+      - "/usr/lib/"
+    found: "/usr/lib/libsqlite3.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindSQLite3.cmake:67 (find_path)"
+      - "CMakeLists.txt:11 (find_package)"
+    mode: "path"
+    variable: "SQLite3_INCLUDE_DIR"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "sqlite3.h"
+    candidate_directories:
+      - "/usr/include/"
+      - "/home/pankake/.local/bin/"
+      - "/home/pankake/.local/share/nvim/mason/bin/"
+      - "/home/pankake/.cargo/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/var/lib/flatpak/exports/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/local/include/"
+      - "/usr/local/"
+      - "/usr/include/"
+      - "/usr/"
+      - "/include/"
+      - "/usr/X11R6/include/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/include/"
+      - "/usr/pkg/"
+      - "/opt/include/"
+      - "/opt/"
+      - "/usr/include/X11/"
+    found: "/usr/include/"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/usr/include/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindSQLite3.cmake:74 (find_library)"
+      - "CMakeLists.txt:11 (find_package)"
+    mode: "library"
+    variable: "SQLite3_LIBRARY"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "sqlite3"
+      - "sqlite"
+    candidate_directories:
+      - "/usr/lib/"
+      - "/home/pankake/.local/bin/"
+      - "/home/pankake/.local/share/nvim/mason/bin/"
+      - "/home/pankake/.cargo/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/var/lib/flatpak/exports/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    found: "/usr/lib/libsqlite3.so"
+    search_context:
+      ENV{PATH}:
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.local/share/nvim/mason/bin"
+        - "/home/pankake/.local/bin"
+        - "/home/pankake/.cargo/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/var/lib/flatpak/exports/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+...

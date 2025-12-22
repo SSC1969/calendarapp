@@ -1,5 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CalenderApp.dir/link.d"
+  "CMakeFiles/CalenderApp.dir/src/app/database.cpp.o"
+  "CMakeFiles/CalenderApp.dir/src/app/database.cpp.o.d"
+  "CMakeFiles/CalenderApp.dir/src/app/task.cpp.o"
+  "CMakeFiles/CalenderApp.dir/src/app/task.cpp.o.d"
   "CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o"
   "CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o.d"
   "CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o"
@@ -12,8 +16,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o.d"
   "CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o"
   "CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o.d"
-  "CMakeFiles/CalenderApp.dir/src/task.cpp.o"
-  "CMakeFiles/CalenderApp.dir/src/task.cpp.o.d"
   "CalenderApp"
   "CalenderApp.pdb"
 )

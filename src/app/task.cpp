@@ -1,9 +1,10 @@
-#include "task.h"
+#include "app/task.h"
 #include <chrono>
 
 Task::Task(const std::string n, const std::string d,
-           const std::chrono::time_point<std::chrono::steady_clock> start,
-           const std::chrono::duration<double> len) {
+           const std::chrono::time_point<std::chrono::system_clock> start,
+           const std::chrono::duration<double> len)
+    : _id(++id_provider) {
     name = n;
     description = d;
     _start_point = start;

@@ -9,5 +9,8 @@ bool App::OnInit() {
     mainFrame->SetClientSize(800, 600);
     mainFrame->Center();
     mainFrame->Show();
+
+    SetAppName("calenderapp");
+    SetAppDisplayName("Calender App");
     return true;
 }

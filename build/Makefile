@@ -136,6 +136,54 @@ CalenderApp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/build
 .PHONY : CalenderApp/fast
 
+src/app/database.o: src/app/database.cpp.o
+.PHONY : src/app/database.o
+
+# target to build an object file
+src/app/database.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/app/database.cpp.o
+.PHONY : src/app/database.cpp.o
+
+src/app/database.i: src/app/database.cpp.i
+.PHONY : src/app/database.i
+
+# target to preprocess a source file
+src/app/database.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/app/database.cpp.i
+.PHONY : src/app/database.cpp.i
+
+src/app/database.s: src/app/database.cpp.s
+.PHONY : src/app/database.s
+
+# target to generate assembly for a file
+src/app/database.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/app/database.cpp.s
+.PHONY : src/app/database.cpp.s
+
+src/app/task.o: src/app/task.cpp.o
+.PHONY : src/app/task.o
+
+# target to build an object file
+src/app/task.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/app/task.cpp.o
+.PHONY : src/app/task.cpp.o
+
+src/app/task.i: src/app/task.cpp.i
+.PHONY : src/app/task.i
+
+# target to preprocess a source file
+src/app/task.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/app/task.cpp.i
+.PHONY : src/app/task.cpp.i
+
+src/app/task.s: src/app/task.cpp.s
+.PHONY : src/app/task.s
+
+# target to generate assembly for a file
+src/app/task.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/app/task.cpp.s
+.PHONY : src/app/task.cpp.s
+
 src/gui/app.o: src/gui/app.cpp.o
 .PHONY : src/gui/app.o
 
@@ -280,30 +328,6 @@ src/gui/todo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.s
 .PHONY : src/gui/todo.cpp.s
 
-src/task.o: src/task.cpp.o
-.PHONY : src/task.o
-
-# target to build an object file
-src/task.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/task.cpp.o
-.PHONY : src/task.cpp.o
-
-src/task.i: src/task.cpp.i
-.PHONY : src/task.i
-
-# target to preprocess a source file
-src/task.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/task.cpp.i
-.PHONY : src/task.cpp.i
-
-src/task.s: src/task.cpp.s
-.PHONY : src/task.s
-
-# target to generate assembly for a file
-src/task.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CalenderApp.dir/build.make CMakeFiles/CalenderApp.dir/src/task.cpp.s
-.PHONY : src/task.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -314,6 +338,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CalenderApp"
+	@echo "... src/app/database.o"
+	@echo "... src/app/database.i"
+	@echo "... src/app/database.s"
+	@echo "... src/app/task.o"
+	@echo "... src/app/task.i"
+	@echo "... src/app/task.s"
 	@echo "... src/gui/app.o"
 	@echo "... src/gui/app.i"
 	@echo "... src/gui/app.s"
@@ -332,9 +362,6 @@ help:
 	@echo "... src/gui/todo.o"
 	@echo "... src/gui/todo.i"
 	@echo "... src/gui/todo.s"
-	@echo "... src/task.o"
-	@echo "... src/task.i"
-	@echo "... src/task.s"
 .PHONY : help
 
 

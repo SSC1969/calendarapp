@@ -1,4 +1,5 @@
 #include "gui/tasklist.h"
+#include "app/database.h"
 #include "app/task.h"
 #include <wx/sizer.h>
 #include <wx/string.h>
@@ -21,9 +22,12 @@ void TaskListPanel::createControls() {
 
     wxSizerFlags todo_flags = wxSizerFlags().Expand().DoubleHorzBorder();
 
+    CalenderDatabase database = CalenderDatabase();
+
     for (int i = 0; i < 15; i++) {
         std::string task_name = std::format("Task {}", i);
         Task new_task = Task(task_name);
+        database.addTask(new_task);
         TaskPanel *task_panel = new TaskPanel(sizer->GetStaticBox());
         task_panel->setTask(new_task);
         sizer->Add(task_panel, todo_flags);

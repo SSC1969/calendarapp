@@ -72,10 +72,38 @@ include CMakeFiles/CalenderApp.dir/flags.make
 CMakeFiles/CalenderApp.dir/codegen:
 .PHONY : CMakeFiles/CalenderApp.dir/codegen
 
+CMakeFiles/CalenderApp.dir/src/app/database.cpp.o: CMakeFiles/CalenderApp.dir/flags.make
+CMakeFiles/CalenderApp.dir/src/app/database.cpp.o: /home/pankake/Documents/calenderapp/src/app/database.cpp
+CMakeFiles/CalenderApp.dir/src/app/database.cpp.o: CMakeFiles/CalenderApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CalenderApp.dir/src/app/database.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CalenderApp.dir/src/app/database.cpp.o -MF CMakeFiles/CalenderApp.dir/src/app/database.cpp.o.d -o CMakeFiles/CalenderApp.dir/src/app/database.cpp.o -c /home/pankake/Documents/calenderapp/src/app/database.cpp
+
+CMakeFiles/CalenderApp.dir/src/app/database.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CalenderApp.dir/src/app/database.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pankake/Documents/calenderapp/src/app/database.cpp > CMakeFiles/CalenderApp.dir/src/app/database.cpp.i
+
+CMakeFiles/CalenderApp.dir/src/app/database.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CalenderApp.dir/src/app/database.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pankake/Documents/calenderapp/src/app/database.cpp -o CMakeFiles/CalenderApp.dir/src/app/database.cpp.s
+
+CMakeFiles/CalenderApp.dir/src/app/task.cpp.o: CMakeFiles/CalenderApp.dir/flags.make
+CMakeFiles/CalenderApp.dir/src/app/task.cpp.o: /home/pankake/Documents/calenderapp/src/app/task.cpp
+CMakeFiles/CalenderApp.dir/src/app/task.cpp.o: CMakeFiles/CalenderApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CalenderApp.dir/src/app/task.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CalenderApp.dir/src/app/task.cpp.o -MF CMakeFiles/CalenderApp.dir/src/app/task.cpp.o.d -o CMakeFiles/CalenderApp.dir/src/app/task.cpp.o -c /home/pankake/Documents/calenderapp/src/app/task.cpp
+
+CMakeFiles/CalenderApp.dir/src/app/task.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CalenderApp.dir/src/app/task.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pankake/Documents/calenderapp/src/app/task.cpp > CMakeFiles/CalenderApp.dir/src/app/task.cpp.i
+
+CMakeFiles/CalenderApp.dir/src/app/task.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CalenderApp.dir/src/app/task.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pankake/Documents/calenderapp/src/app/task.cpp -o CMakeFiles/CalenderApp.dir/src/app/task.cpp.s
+
 CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o: CMakeFiles/CalenderApp.dir/flags.make
 CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o: /home/pankake/Documents/calenderapp/src/gui/app.cpp
 CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o: CMakeFiles/CalenderApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o -MF CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o.d -o CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o -c /home/pankake/Documents/calenderapp/src/gui/app.cpp
 
 CMakeFiles/CalenderApp.dir/src/gui/app.cpp.i: cmake_force
@@ -89,7 +117,7 @@ CMakeFiles/CalenderApp.dir/src/gui/app.cpp.s: cmake_force
 CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o: CMakeFiles/CalenderApp.dir/flags.make
 CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o: /home/pankake/Documents/calenderapp/src/gui/app_panel.cpp
 CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o: CMakeFiles/CalenderApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o -MF CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o.d -o CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o -c /home/pankake/Documents/calenderapp/src/gui/app_panel.cpp
 
 CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.i: cmake_force
@@ -103,7 +131,7 @@ CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.s: cmake_force
 CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o: CMakeFiles/CalenderApp.dir/flags.make
 CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o: /home/pankake/Documents/calenderapp/src/gui/calender.cpp
 CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o: CMakeFiles/CalenderApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o -MF CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o.d -o CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o -c /home/pankake/Documents/calenderapp/src/gui/calender.cpp
 
 CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.i: cmake_force
@@ -117,7 +145,7 @@ CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.s: cmake_force
 CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o: CMakeFiles/CalenderApp.dir/flags.make
 CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o: /home/pankake/Documents/calenderapp/src/gui/main_frame.cpp
 CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o: CMakeFiles/CalenderApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o -MF CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o.d -o CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o -c /home/pankake/Documents/calenderapp/src/gui/main_frame.cpp
 
 CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.i: cmake_force
@@ -131,7 +159,7 @@ CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.s: cmake_force
 CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o: CMakeFiles/CalenderApp.dir/flags.make
 CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o: /home/pankake/Documents/calenderapp/src/gui/tasklist.cpp
 CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o: CMakeFiles/CalenderApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o -MF CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o.d -o CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o -c /home/pankake/Documents/calenderapp/src/gui/tasklist.cpp
 
 CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.i: cmake_force
@@ -145,7 +173,7 @@ CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.s: cmake_force
 CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o: CMakeFiles/CalenderApp.dir/flags.make
 CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o: /home/pankake/Documents/calenderapp/src/gui/todo.cpp
 CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o: CMakeFiles/CalenderApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o -MF CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o.d -o CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o -c /home/pankake/Documents/calenderapp/src/gui/todo.cpp
 
 CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.i: cmake_force
@@ -156,44 +184,33 @@ CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pankake/Documents/calenderapp/src/gui/todo.cpp -o CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.s
 
-CMakeFiles/CalenderApp.dir/src/task.cpp.o: CMakeFiles/CalenderApp.dir/flags.make
-CMakeFiles/CalenderApp.dir/src/task.cpp.o: /home/pankake/Documents/calenderapp/src/task.cpp
-CMakeFiles/CalenderApp.dir/src/task.cpp.o: CMakeFiles/CalenderApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CalenderApp.dir/src/task.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CalenderApp.dir/src/task.cpp.o -MF CMakeFiles/CalenderApp.dir/src/task.cpp.o.d -o CMakeFiles/CalenderApp.dir/src/task.cpp.o -c /home/pankake/Documents/calenderapp/src/task.cpp
-
-CMakeFiles/CalenderApp.dir/src/task.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CalenderApp.dir/src/task.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pankake/Documents/calenderapp/src/task.cpp > CMakeFiles/CalenderApp.dir/src/task.cpp.i
-
-CMakeFiles/CalenderApp.dir/src/task.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CalenderApp.dir/src/task.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pankake/Documents/calenderapp/src/task.cpp -o CMakeFiles/CalenderApp.dir/src/task.cpp.s
-
 # Object files for target CalenderApp
 CalenderApp_OBJECTS = \
+"CMakeFiles/CalenderApp.dir/src/app/database.cpp.o" \
+"CMakeFiles/CalenderApp.dir/src/app/task.cpp.o" \
 "CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o" \
 "CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o" \
 "CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o" \
 "CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o" \
 "CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o" \
-"CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o" \
-"CMakeFiles/CalenderApp.dir/src/task.cpp.o"
+"CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o"
 
 # External object files for target CalenderApp
 CalenderApp_EXTERNAL_OBJECTS =
 
+CalenderApp: CMakeFiles/CalenderApp.dir/src/app/database.cpp.o
+CalenderApp: CMakeFiles/CalenderApp.dir/src/app/task.cpp.o
 CalenderApp: CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o
 CalenderApp: CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o
 CalenderApp: CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o
 CalenderApp: CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o
 CalenderApp: CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o
 CalenderApp: CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o
-CalenderApp: CMakeFiles/CalenderApp.dir/src/task.cpp.o
 CalenderApp: CMakeFiles/CalenderApp.dir/build.make
 CalenderApp: CMakeFiles/CalenderApp.dir/compiler_depend.ts
+CalenderApp: /usr/lib/libsqlite3.so
 CalenderApp: CMakeFiles/CalenderApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable CalenderApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pankake/Documents/calenderapp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable CalenderApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CalenderApp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

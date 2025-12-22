@@ -8,13 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/pankake/Documents/calenderapp/src/app/database.cpp" "CMakeFiles/CalenderApp.dir/src/app/database.cpp.o" "gcc" "CMakeFiles/CalenderApp.dir/src/app/database.cpp.o.d"
+  "/home/pankake/Documents/calenderapp/src/app/task.cpp" "CMakeFiles/CalenderApp.dir/src/app/task.cpp.o" "gcc" "CMakeFiles/CalenderApp.dir/src/app/task.cpp.o.d"
   "/home/pankake/Documents/calenderapp/src/gui/app.cpp" "CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o" "gcc" "CMakeFiles/CalenderApp.dir/src/gui/app.cpp.o.d"
   "/home/pankake/Documents/calenderapp/src/gui/app_panel.cpp" "CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o" "gcc" "CMakeFiles/CalenderApp.dir/src/gui/app_panel.cpp.o.d"
   "/home/pankake/Documents/calenderapp/src/gui/calender.cpp" "CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o" "gcc" "CMakeFiles/CalenderApp.dir/src/gui/calender.cpp.o.d"
   "/home/pankake/Documents/calenderapp/src/gui/main_frame.cpp" "CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o" "gcc" "CMakeFiles/CalenderApp.dir/src/gui/main_frame.cpp.o.d"
   "/home/pankake/Documents/calenderapp/src/gui/tasklist.cpp" "CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o" "gcc" "CMakeFiles/CalenderApp.dir/src/gui/tasklist.cpp.o.d"
   "/home/pankake/Documents/calenderapp/src/gui/todo.cpp" "CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o" "gcc" "CMakeFiles/CalenderApp.dir/src/gui/todo.cpp.o.d"
-  "/home/pankake/Documents/calenderapp/src/task.cpp" "CMakeFiles/CalenderApp.dir/src/task.cpp.o" "gcc" "CMakeFiles/CalenderApp.dir/src/task.cpp.o.d"
   "" "CalenderApp" "gcc" "CMakeFiles/CalenderApp.dir/link.d"
   )
 
