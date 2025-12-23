@@ -1,9 +1,13 @@
 #include "gui/tasklist.h"
 #include "app/database.h"
 #include "app/task.h"
+#include <sqlite_orm/sqlite_orm.h>
+#include <vector>
 #include <wx/sizer.h>
 #include <wx/string.h>
 #include <wx/wx.h>
+
+namespace sql = sqlite_orm;
 
 TaskListPanel::TaskListPanel(wxWindow *parent)
     : wxScrolledWindow(parent, wxID_ANY) {
@@ -17,23 +21,33 @@ void TaskListPanel::createControls() {
 
     SetScrollRate(0, FromDIP(10));
 
-    // Dynamically create tasks later
-    wxStaticBoxSizer *sizer = new wxStaticBoxSizer(wxVERTICAL, this);
+    wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
 
     wxSizerFlags todo_flags = wxSizerFlags().Expand().DoubleHorzBorder();
 
     CalenderDatabase database = CalenderDatabase();
 
-    for (int i = 0; i < 15; i++) {
-        std::string task_name = std::format("Task {}", i);
-        Task new_task = Task(task_name);
-        database.addTask(new_task);
-        TaskPanel *task_panel = new TaskPanel(sizer->GetStaticBox());
-        task_panel->setTask(new_task);
-        sizer->Add(task_panel, todo_flags);
+    std::string date_str =
+        std::format("{:%F}", std::chrono::system_clock::now());
+
+    std::vector<Task> tasks = database.storage->get_all<Task>(
+        sql::where(date_str == sql::c(&Task::getStart)));
+
+    for (Task &task : tasks) {
+        TaskPanel *panel = new TaskPanel(this, task);
+        sizer->Add(panel, todo_flags);
     }
 
-    SetSizer(sizer);
+    placeholder_text = new wxStaticText(this, wxID_ANY, "No tasks.");
+    placeholder_text->Hide();
+
+    sizer->Add(placeholder_text, wxSizerFlags().Center());
+
+    if (tasks.empty()) {
+        placeholder_text->Show();
+    }
+
+    SetSizerAndFit(sizer);
 }
 
 void TaskListPanel::setUpSizers() {}
@@ -71,5 +85,5 @@ void TaskPanel::setTask(Task new_task) {
     task = new_task;
     name->SetLabel(task.name);
 
-    checkbox->SetValue(task.isComplete());
+    checkbox->SetValue(task.getCompleted());
 }

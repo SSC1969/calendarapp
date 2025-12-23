@@ -17,11 +17,12 @@ class TaskListPanel : public wxScrolledWindow {
     // Other private methods
 
     // Control members
+    wxStaticText *placeholder_text;
 };
 
 class TaskPanel : public wxPanel {
   public:
-    TaskPanel(wxWindow *parent, Task task = Task(""));
+    TaskPanel(wxWindow *parent, Task task);
     void setTask(Task new_task);
 
   private:
@@ -34,7 +35,7 @@ class TaskPanel : public wxPanel {
 
     // Other private methods
 
-    Task task = Task("undefined");
+    Task task;
 
     // Control members
     wxStaticText *name;

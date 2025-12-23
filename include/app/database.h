@@ -1,31 +1,30 @@
-#pragma once
 #include "app/task.h"
-#include <chrono>
-#include <sqlite3.h>
-#include <vector>
+#include <memory>
+#include <sqlite_orm/sqlite_orm.h>
+#include <string>
+
+// Define the relation between the Task class and the database
+inline auto initStorage(const std::string &path) {
+    using namespace sqlite_orm;
+    return make_storage(
+        path,
+        make_table(
+            "tasks",
+            make_column("id", &Task::setId, &Task::getId,
+                        primary_key().autoincrement()),
+            make_column("name", &Task::name),
+            make_column("description", &Task::description, null()),
+            make_column("start_point", &Task::getStart, &Task::setStart),
+            make_column("duration", &Task::getDuration, &Task::setDuration,
+                        null()),
+            make_column("completed", &Task::getCompleted,
+                        &Task::setCompleted)));
+}
+
+using Storage = decltype(initStorage(""));
 
 class CalenderDatabase {
   public:
-    // Constructor/Destructor
     CalenderDatabase();
-    ~CalenderDatabase();
-
-    // CRUD methods
-    void addTask(Task task);
-    void updateTask(Task target_task, Task updated_task);
-    void deleteTask(Task task);
-
-    std::vector<Task>
-    retrieveTasks(std::chrono::time_point<std::chrono::system_clock> date);
-
-  private:
-    sqlite3 *DB;
-
-    // Setup methods
-    bool validateDatabaseFile();
-    void initializeDatabase();
-    int getTaskIdProvider();
-
-    // Helper functions
-    void bindTaskParams(Task task, sqlite3_stmt *stmt);
+    std::unique_ptr<Storage> storage;
 };

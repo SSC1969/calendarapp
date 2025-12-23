@@ -1,0 +1,34 @@
+#include "app/task.h"
+#include <chrono>
+
+Task::Task(const std::string n, const std::string d,
+           const std::chrono::system_clock::time_point start,
+           const std::chrono::duration<double> len, int id) {
+    if (id > 0) {
+        _id = id;
+    } else {
+        _id = id_provider++;
+    }
+
+    name = n;
+    description = d;
+    _start_point = start;
+    _duration = len;
+}
+
+Task::Task(const Task &other) {
+    _id = other._id;
+    name = other.name;
+    description = other.description;
+    _start_point = other._start_point;
+    _duration = other._duration;
+    _completed = other._completed;
+}
+
+int Task::id_provider;
+
+bool Task::isComplete() { return _completed; }
+
+void Task::completeTask() { _completed = true; }
+
+void Task::uncompleteTask() { _completed = false; }

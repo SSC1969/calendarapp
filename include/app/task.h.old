@@ -1,0 +1,63 @@
+#pragma once
+#include <chrono>
+#include <string>
+
+class Task {
+  public:
+    Task(const std::string n, const std::string d = "",
+         const std::chrono::system_clock::time_point start =
+             std::chrono::system_clock::now(),
+         const std::chrono::duration<double> len =
+             std::chrono::duration<double>::zero(),
+         int id = -1);
+    Task(const Task &other);
+
+    std::string name;
+    std::string description;
+
+    static void updateIdProvider(int new_provider) {
+        Task::id_provider = new_provider;
+    }
+
+    int id() { return _id; }
+    std::chrono::system_clock::time_point start_point() {
+        return _start_point;
+    }
+    std::chrono::duration<double> duration() { return _duration; }
+    bool isComplete();
+    void completeTask();
+    void uncompleteTask();
+
+    // New methods for SQLiteORM
+    int getId() const { return this->_id; }
+    void setId(int id) { this->_id = id; }
+
+    std::string getStart() const {
+        return std::format("{:%F %R}", this->_start_point);
+    }
+    void setStart(std::string start) {
+        std::stringstream stss(start);
+        stss >> std::chrono::parse("%F %R", this->_start_point);
+    }
+
+    std::string getDuration() const {
+        return std::format("{:%T}", this->_duration);
+    }
+    void setDuration(std::string duration) {
+        std::stringstream stss(duration);
+        stss >> std::chrono::parse("%T", this->_duration);
+    }
+
+    bool getCompleted() const { return this->_completed; }
+    void setCompleted(bool completed) { this->_completed = completed; }
+
+  private:
+    std::chrono::system_clock::time_point _start_point;
+    std::chrono::duration<double> _duration;
+    bool _completed = false;
+
+    int _id;
+    static int id_provider;
+};
+
+// Add subtasks, repeating period, location, etc.

@@ -24,10 +24,7 @@ void TodoPanel::createControls() {
 
 void TodoPanel::setUpSizers() {
     // Main vertical sizer containing all elements of the todo section
-    wxFlexGridSizer *main_sizer = new wxFlexGridSizer(1);
-    main_sizer->SetFlexibleDirection(wxVERTICAL);
-    main_sizer->SetNonFlexibleGrowMode(wxFLEX_GROWMODE_ALL);
-    main_sizer->AddGrowableRow(2);
+    wxBoxSizer *main_sizer = new wxBoxSizer(wxVERTICAL);
 
     // Create a new horizontal BoxSizer to hold the input field and button
     wxBoxSizer *input_sizer = new wxBoxSizer(wxHORIZONTAL);

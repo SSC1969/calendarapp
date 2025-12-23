@@ -14,7 +14,7 @@ MainFrame::MainFrame(const wxString &title)
 
 void MainFrame::createControls() {
     SetBackgroundColour(wxColour("green"));
-    wxFont main_font(wxFontInfo(wxSize(0, 16)));
+    wxFont main_font(wxFontInfo(wxSize(0, 24)));
 
     panel = new wxPanel(this);
     panel->SetFont(main_font);
