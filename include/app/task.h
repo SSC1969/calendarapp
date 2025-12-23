@@ -29,6 +29,12 @@ class Task {
     bool getCompleted() const { return this->completed; }
     void setCompleted(bool completed) { this->completed = completed; }
 
+    friend std::ostream &operator<<(std::ostream &os, const Task &t) {
+        return os << "[" << t.id << "](" << t.name << ", " << t.description
+                  << ", " << t.start_point << ", " << t.duration << ", "
+                  << t.completed << ")";
+    }
+
   private:
     std::chrono::system_clock::time_point start_point;
     std::chrono::duration<double> duration;

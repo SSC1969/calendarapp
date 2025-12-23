@@ -14,7 +14,7 @@ MainFrame::MainFrame(const wxString &title)
 
 void MainFrame::createControls() {
     SetBackgroundColour(wxColour("green"));
-    wxFont main_font(wxFontInfo(wxSize(0, 24)));
+    wxFont main_font(wxFontInfo(wxSize(0, 20)));
 
     panel = new wxPanel(this);
     panel->SetFont(main_font);
@@ -23,6 +23,8 @@ void MainFrame::createControls() {
     todo_panel->init();
     calender_panel = new CalenderPanel(panel);
     calender_panel->init();
+
+    CreateStatusBar();
 }
 
 void MainFrame::setUpSizers() {
