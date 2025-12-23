@@ -1,3 +1,4 @@
+#pragma once
 #include "app/task.h"
 #include <memory>
 #include <sqlite_orm/sqlite_orm.h>

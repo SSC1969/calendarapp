@@ -14,45 +14,47 @@ TaskListPanel::TaskListPanel(wxWindow *parent)
     createControls();
     setUpSizers();
     bindEventHandlers();
+
+    loadDayTasks(std::chrono::system_clock::now());
 }
 
 void TaskListPanel::createControls() {
     SetBackgroundColour(wxColour("purple"));
-
     SetScrollRate(0, FromDIP(10));
 
-    wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
-
-    wxSizerFlags todo_flags = wxSizerFlags().Expand().DoubleHorzBorder();
-
-    CalenderDatabase database = CalenderDatabase();
-
-    std::string date_str =
-        std::format("{:%F}", std::chrono::system_clock::now());
-
-    std::vector<Task> tasks = database.storage->get_all<Task>(
-        sql::where(date_str == sql::c(&Task::getStart)));
-
-    for (Task &task : tasks) {
-        TaskPanel *panel = new TaskPanel(this, task);
-        sizer->Add(panel, todo_flags);
-    }
-
+    sizer = new wxBoxSizer(wxVERTICAL);
     placeholder_text = new wxStaticText(this, wxID_ANY, "No tasks.");
-    placeholder_text->Hide();
 
+    database = CalenderDatabase();
+}
+
+void TaskListPanel::setUpSizers() {
     sizer->Add(placeholder_text, wxSizerFlags().Center());
-
-    if (tasks.empty()) {
-        placeholder_text->Show();
-    }
 
     SetSizerAndFit(sizer);
 }
 
-void TaskListPanel::setUpSizers() {}
-
 void TaskListPanel::bindEventHandlers() {}
+
+void TaskListPanel::loadDayTasks(
+    std::chrono::system_clock::time_point day) {
+
+    std::string date_str = std::format("{:%F}", day);
+
+    std::vector<Task> tasks = database.storage->get_all<Task>(
+        sql::where(date_str == sql::c(&Task::getStart) or
+                   (date_str > sql::c(&Task::getStart) and
+                    not sql::c(&Task::getCompleted))));
+
+    for (Task &task : tasks) {
+        TaskPanel *panel = new TaskPanel(this, task);
+        sizer->Add(panel, this->todo_flags);
+    }
+
+    placeholder_text->Hide();
+    sizer->Layout();
+    sizer->SetSizeHints(this);
+}
 
 TaskPanel::TaskPanel(wxWindow *parent, Task task)
     : wxPanel(parent, wxID_ANY) {

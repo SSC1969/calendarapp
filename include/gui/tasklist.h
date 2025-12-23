@@ -1,4 +1,5 @@
 #pragma once
+#include "app/database.h"
 #include "app/task.h"
 #include <wx/wx.h>
 
@@ -15,9 +16,14 @@ class TaskListPanel : public wxScrolledWindow {
     // Event handlers
 
     // Other private methods
+    void loadDayTasks(std::chrono::system_clock::time_point day);
 
     // Control members
     wxStaticText *placeholder_text;
+    wxBoxSizer *sizer;
+    CalenderDatabase database;
+
+    wxSizerFlags todo_flags = wxSizerFlags().Expand().DoubleHorzBorder();
 };
 
 class TaskPanel : public wxPanel {
