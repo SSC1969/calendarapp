@@ -1,0 +1,396 @@
+#include "gui/widgets/durationpicker.h.old"
+#include <string>
+#include <wx/calctrl.h>
+#include <wx/datetime.h>
+#include <wx/event.h>
+#include <wx/gdicmn.h>
+#include <wx/settings.h>
+#include <wx/wx.h>
+
+wxDEFINE_EVENT(cEVT_DURATION_UPDATE, wxCommandEvent);
+
+bool wxCustomDurationPickerPopup::Create(wxWindow *parent) {
+    if (!wxPanel::Create(parent, wxID_ANY, wxDefaultPosition,
+                         wxDefaultSize,
+                         wxBORDER_RAISED | wxTAB_TRAVERSAL)) {
+        return false;
+    }
+
+    SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_FRAMEBK));
+
+    // Create controls and sizers
+    main_sizer = new wxBoxSizer(wxVERTICAL);
+    top_sizer = new wxBoxSizer(wxHORIZONTAL);
+    bottom_sizer = new wxBoxSizer(wxHORIZONTAL);
+
+    start_text =
+        new wxStaticText(this, wxID_ANY, wxEmptyString, wxDefaultPosition,
+                         wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    end_text =
+        new wxStaticText(this, wxID_ANY, wxEmptyString, wxDefaultPosition,
+                         wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    end_button = new wxButton(this, wxID_ADD);
+
+    calender =
+        new wxCalendarCtrl(this, wxID_ANY, wxDefaultDateTime,
+                           wxDefaultPosition, wxDefaultSize, wxNO_BORDER);
+
+    timepicker = new wxTimePickerCtrl(this, wxID_ANY);
+    ok_button = new wxButton(this, wxID_OK);
+
+    // Bind event handlers
+    start_text->Bind(wxEVT_LEFT_DOWN,
+                     &wxCustomDurationPickerPopup::OnStartTextClicked,
+                     this);
+    end_text->Bind(wxEVT_LEFT_DOWN,
+                   &wxCustomDurationPickerPopup::OnEndTextClicked, this);
+
+    end_button->Bind(wxEVT_BUTTON, [this](wxCommandEvent &) {
+        this->SetEndDateTime(start_dt + wxTimeSpan(1));
+        this->SetSelection("end");
+    });
+
+    calender->Bind(wxEVT_CALENDAR_SEL_CHANGED,
+                   &wxCustomDurationPickerPopup::OnCalendarChanged, this);
+
+    timepicker->Bind(wxEVT_TIME_CHANGED,
+                     &wxCustomDurationPickerPopup::OnTimePickerChanged,
+                     this);
+    ok_button->Bind(wxEVT_COMMAND_BUTTON_CLICKED,
+                    &wxCustomDurationPickerPopup::OnOKButtonClicked, this);
+
+    wxSizerFlags flags = wxSizerFlags(1).Border(wxALL, FromDIP(2));
+
+    top_sizer->Add(start_text, flags.Center());
+    top_sizer->Add(end_text, flags.Center());
+
+    flags = wxSizerFlags(1).Expand().Border(wxALL, FromDIP(2));
+
+    top_sizer->Add(end_button, flags.Proportion(0));
+
+    if (end_dt.IsEqualTo(start_dt)) {
+        top_sizer->Hide(end_text);
+        top_sizer->Show(end_button);
+    }
+
+    main_sizer->Add(top_sizer, wxSizerFlags().Expand());
+    main_sizer->Add(calender, flags);
+
+    bottom_sizer->Add(timepicker, flags.Proportion(3));
+    bottom_sizer->Add(ok_button, flags.Proportion(2));
+
+    main_sizer->Add(bottom_sizer, wxSizerFlags().Expand());
+
+    SetSizerAndFit(main_sizer);
+
+    return true;
+}
+
+wxString wxCustomDurationPickerPopup::GetStringValue() const {
+    wxString start_str = GetDisplayDateTimeString(start_dt);
+
+    if (!end_dt.IsValid()) {
+        return start_str;
+    }
+
+    wxString end_str = GetDisplayDateTimeString(end_dt);
+
+    // same date - display e.g. 'Jan 1, 12:00pm - 4:00pm'
+    if (start_dt.IsSameDate(end_dt)) {
+        end_str = end_dt.Format("%I:%M%p");
+    }
+
+    // different year - display e.g. 'Jan 1, 2025, 12:00pm - Jan 1, 2026,
+    // 4:00pm'
+    if (start_dt.GetYear() != end_dt.GetYear()) {
+        start_str = GetDisplayDateTimeString(start_dt, true);
+        end_str = GetDisplayDateTimeString(end_dt, true);
+    }
+
+    // if neither special condtiion is met, (meaning different dates in the
+    // same year), the format is e.g. 'Jan 1, 12:00pm - Jan 2, 12:00pm'
+
+    return start_str + " - " + end_str;
+}
+
+wxSize
+wxCustomDurationPickerPopup::GetAdjustedSize(int WXUNUSED(minWidth),
+                                             int WXUNUSED(prefHeight),
+                                             int WXUNUSED(maxHeight)) {
+    return GetSize();
+}
+
+void wxCustomDurationPickerPopup::OnPopup() {
+    wxCustomDurationPicker *picker = GetCustomDurationPicker();
+
+    if (picker) {
+        SetStartDateTime(picker->GetStartDateTime(), false);
+        SetEndDateTime(picker->GetEndDateTime(), false);
+        SetSelection("start");
+    }
+}
+
+wxDateTime wxCustomDurationPickerPopup::GetStartDateTime() const {
+    wxCHECK(IsCreated(), wxInvalidDateTime);
+
+    return start_dt;
+}
+wxDateTime wxCustomDurationPickerPopup::GetEndDateTime() const {
+    wxCHECK(IsCreated(), wxInvalidDateTime);
+
+    return end_dt;
+}
+
+wxDateTime wxCustomDurationPickerPopup::GetWidgetDateTime() const {
+    wxCHECK(IsCreated(), wxInvalidDateTime);
+
+    wxDateTime date, time;
+
+    date = calender->GetDate();
+    wxCHECK(date.IsValid(), wxInvalidDateTime);
+
+    time = timepicker->GetValue();
+    wxCHECK(time.IsValid(), wxInvalidDateTime);
+
+    return wxDateTime(date.GetDay(), date.GetMonth(), date.GetYear(),
+                      time.GetHour(), time.GetMinute(), time.GetSecond());
+}
+
+void wxCustomDurationPickerPopup::SetStartDateTime(
+    const wxDateTime &dateTime, bool update_parent) {
+    wxCHECK_RET(IsCreated(), "Call Create() before setting the datetime!");
+    wxLogStatus("Updating widget start datetime");
+
+    start_dt = dateTime;
+    start_text->SetLabel(GetDisplayDateTimeString(start_dt));
+
+    // update layout
+    top_sizer->Layout();
+    main_sizer->Fit(this);
+
+    // This line is required for the popup box to resize propery when
+    // it's components change size
+    GetParent()->SetSize(GetSize());
+
+    if (!update_parent)
+        return;
+
+    wxLogStatus("Updating start parent");
+    // update the combobox that owns this popup
+    GetCustomDurationPicker()->SetStartDateTime(start_dt);
+}
+void wxCustomDurationPickerPopup::SetEndDateTime(
+    const wxDateTime &dateTime, bool update_parent) {
+    wxCHECK_RET(IsCreated(), "Call Create() before setting the datetime!");
+    wxLogStatus("Updating widget end datetime");
+
+    end_dt = dateTime;
+
+    wxString str;
+    // Only display the start time if the end time is identical
+    if (end_dt.IsEqualTo(start_dt)) {
+        // TODO: fix timepicker buttons remaining held when the end_button
+        // gets unhidden
+        top_sizer->Hide(end_text);
+        top_sizer->Show(end_button);
+        SetSelection("start");
+    } else {
+        top_sizer->Hide(end_button);
+        top_sizer->Show(end_text);
+        end_text->SetLabel(GetDisplayDateTimeString(end_dt));
+    }
+
+    // update layout
+    top_sizer->Layout();
+    main_sizer->Fit(this);
+
+    // This line is required for the popup box to resize propery when
+    // it's components change size
+    GetParent()->SetSize(GetSize());
+
+    if (!update_parent)
+        return;
+
+    wxLogStatus("Updating end parent");
+    // update the combobox that owns this popup
+    GetCustomDurationPicker()->SetEndDateTime(end_dt);
+}
+
+void wxCustomDurationPickerPopup::SetWidgetDateTime(
+    const wxDateTime &dateTime) {
+
+    wxCHECK_RET(IsCreated(), "Call Create() before setting the datetime!");
+
+    calender->SetDate(dateTime);
+    timepicker->SetValue(dateTime);
+}
+
+wxString wxCustomDurationPickerPopup::GetDisplayDateTimeString(
+    const wxDateTime &dateTime, bool year) {
+
+    wxCHECK(dateTime.IsValid(), wxString(_("Invalid date and/or time")));
+
+    std::string fmt;
+
+    bool diff_year = dateTime.GetYear() != wxDateTime::Now().GetYear();
+
+    // adjust the format if the date isn't this year, or if it was
+    // requested
+    if (diff_year || year) {
+        // e.g. Jan 2, 2025, 12:05
+        fmt = "%b %e, %G, %I:%M%p";
+    } else {
+        // e.g. Jan 2, 12:05
+        fmt = "%b %e, %I:%M%p";
+    }
+
+    return dateTime.Format(fmt);
+}
+
+wxCustomDurationPicker *
+wxCustomDurationPickerPopup::GetCustomDurationPicker() {
+    wxCHECK(IsCreated(), NULL);
+
+    return dynamic_cast<wxCustomDurationPicker *>(GetComboCtrl());
+}
+
+void wxCustomDurationPickerPopup::UpdateSelectedText() {
+    if (selected == "start") {
+        SetStartDateTime(GetWidgetDateTime());
+    } else if (selected == "end") {
+        SetEndDateTime(GetWidgetDateTime());
+    }
+}
+
+void wxCustomDurationPickerPopup::OnOKButtonClicked(wxCommandEvent &) {
+    Dismiss();
+}
+
+void wxCustomDurationPickerPopup::OnStartTextClicked(wxMouseEvent &evt) {
+    evt.Skip();
+    SetSelection("start");
+    UpdateSelectedText();
+}
+
+void wxCustomDurationPickerPopup::OnEndTextClicked(wxMouseEvent &evt) {
+    evt.Skip();
+    SetSelection("end");
+    UpdateSelectedText();
+}
+
+void wxCustomDurationPickerPopup::SetSelection(std::string str) {
+    if (selected == str) {
+        return;
+    }
+    wxLogStatus("Swapping to %s selection", str);
+
+    // swap the selection to end and update the widgets to match
+    if (str == "start") {
+        selected = str;
+        SetWidgetDateTime(GetStartDateTime());
+
+        // unlimit date range
+        calender->SetDateRange();
+
+        // highlight the selected text
+        start_text->SetBackgroundColour(
+            wxSystemSettings::GetColour(wxSYS_COLOUR_HIGHLIGHT));
+        end_text->SetBackgroundColour(GetBackgroundColour());
+    } else if (str == "end") {
+        selected = str;
+        SetWidgetDateTime(GetEndDateTime());
+
+        // limit the range of dates that can be selected
+        calender->SetDateRange(start_dt - wxDateSpan(0, 0, 0, 1));
+
+        // highlight the selected text
+        end_text->SetBackgroundColour(
+            wxSystemSettings::GetColour(wxSYS_COLOUR_HIGHLIGHT));
+        start_text->SetBackgroundColour(GetBackgroundColour());
+    }
+}
+
+void wxCustomDurationPickerPopup::OnCalendarChanged(wxCalendarEvent &evt) {
+    wxLogStatus("Calender event triggered");
+    evt.Skip();
+
+    UpdateSelectedText();
+}
+void wxCustomDurationPickerPopup::OnTimePickerChanged(wxDateEvent &evt) {
+    wxLogStatus("Timepicker event triggered");
+    evt.Skip();
+
+    UpdateSelectedText();
+}
+// wxCustomDurationPicker definition
+
+wxCustomDurationPicker::wxCustomDurationPicker(wxWindow *parent,
+                                               const wxDateTime &start,
+                                               const wxDateTime &end)
+    : wxComboCtrl(parent, wxID_ANY, wxEmptyString, wxDefaultPosition,
+                  wxDefaultSize, wxCB_READONLY),
+      start_dt(start), end_dt(end) {
+    UseAltPopupWindow();
+    popup = new wxCustomDurationPickerPopup();
+    SetPopupControl(popup);
+    UpdateText();
+}
+
+void wxCustomDurationPicker::SetStartDateTime(const wxDateTime &dateTime) {
+    start_dt = dateTime;
+    UpdateText();
+}
+
+void wxCustomDurationPicker::SetEndDateTime(const wxDateTime &dateTime) {
+    end_dt = dateTime;
+    UpdateText();
+}
+
+wxString wxCustomDurationPicker::GetDurationString() const {
+    wxString start_str =
+        wxCustomDurationPickerPopup::GetDisplayDateTimeString(start_dt);
+
+    // if the task has identical start/end times (no duration) only display
+    // the start time
+    if (start_dt.IsEqualTo(end_dt) || !end_dt.IsValid()) {
+        return start_str;
+        wxLogStatus("Updating duration picker label %s",
+                    wxCustomDurationPickerPopup::GetDisplayDateTimeString(
+                        start_dt));
+    }
+
+    wxLogStatus(
+        "Updating duration picker label [%s | %s]",
+        wxCustomDurationPickerPopup::GetDisplayDateTimeString(start_dt),
+        wxCustomDurationPickerPopup::GetDisplayDateTimeString(end_dt));
+
+    wxString end_str;
+
+    // different year - display e.g. 'Jan 1, 2025, 12:00pm - Jan 1, 2026,
+    // 4:00pm'
+    if (start_dt.GetYear() != end_dt.GetYear()) {
+        start_str = wxCustomDurationPickerPopup::GetDisplayDateTimeString(
+            start_dt, true);
+        end_str = wxCustomDurationPickerPopup::GetDisplayDateTimeString(
+            end_dt, true);
+    } else {
+        end_str =
+            wxCustomDurationPickerPopup::GetDisplayDateTimeString(end_dt);
+    }
+    // same date - display e.g. 'Jan 1, 12:00pm - 4:00pm'
+    if (start_dt.IsSameDate(end_dt)) {
+        end_str = end_dt.Format("%I:%M%p");
+    }
+
+    // if neither special condtiion is met, (meaning different dates in the
+    // same year), the format is e.g. 'Jan 1, 12:00pm - Jan 2, 12:00pm'
+    return start_str + " - " + end_str;
+}
+
+void wxCustomDurationPicker::UpdateText() {
+    const wxString duration_str = GetDurationString();
+
+    SetValue(duration_str);
+    SetMinClientSize(
+        GetSizeFromText(wxString::Format(" %s ", duration_str)));
+}

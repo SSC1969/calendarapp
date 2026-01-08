@@ -17,10 +17,13 @@ MainFrame::MainFrame(const wxString &title)
 }
 
 void MainFrame::createControls() {
+    logger = new wxLogWindow(this, "Log", true, false);
+    wxLog::SetActiveTarget(logger);
+
     wxFont main_font(wxFontInfo(wxSize(0, 18)));
 
     panel = new wxPanel(this);
-    panel->SetFont(main_font);
+    // panel->SetFont(main_font);
 
     notebook = new wxNotebook(panel, wxID_ANY, wxDefaultPosition,
                               wxDefaultSize, wxNB_LEFT | wxNB_NOPAGETHEME);

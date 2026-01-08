@@ -1,7 +1,8 @@
 #pragma once
 #include "app/database.h"
 #include "app/task.h"
-#include "gui/widgets/datetimepicker.h"
+#include "gui/widgets/daterangepicker.h"
+#include <chrono>
 #include <wx/datectrl.h>
 #include <wx/event.h>
 #include <wx/timectrl.h>
@@ -58,6 +59,7 @@ class TaskPanel : public wxPanel {
     void onNameEnterPressed(wxCommandEvent &evt);
     void onNameFocusLost(wxFocusEvent &evt);
     void onCheckboxChanged(wxCommandEvent &evt);
+    void onTimeChanged(wxCommandEvent &evt);
 
     // Other private methods
     void updateTaskName();
@@ -72,5 +74,5 @@ class TaskPanel : public wxPanel {
     wxStaticText *name;
     wxTextCtrl *name_entry;
 
-    wxCustomDateTimePicker *start_point;
+    wxCustomDateRangePicker *duration;
 };

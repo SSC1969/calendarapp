@@ -1,8 +1,10 @@
 #include "gui/tasklist.h"
 #include "app/database.h"
 #include "app/task.h"
-#include "gui/widgets/datetimepicker.h"
+#include "gui/widgets/daterangepicker.h"
+#include <iostream>
 #include <sqlite_orm/sqlite_orm.h>
+#include <string>
 #include <vector>
 #include <wx/datectrl.h>
 #include <wx/datetime.h>
@@ -120,7 +122,7 @@ void TaskPanel::createControls() {
         new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition,
                        wxDefaultSize, wxTE_PROCESS_ENTER);
 
-    start_point = new wxCustomDateTimePicker(this);
+    duration = new wxCustomDateRangePicker(this);
 }
 
 void TaskPanel::setUpSizers() {
@@ -129,7 +131,7 @@ void TaskPanel::setUpSizers() {
     sizer->Add(name, wxSizerFlags(1).Center());
     sizer->Add(name_entry, wxSizerFlags(1).Center());
 
-    sizer->Add(start_point, wxSizerFlags().Center());
+    sizer->Add(duration, wxSizerFlags().Center());
 
     sizer->Hide(name_entry);
     SetSizer(sizer);
@@ -145,6 +147,8 @@ void TaskPanel::bindEventHandlers() {
                      this);
     name_entry->Bind(wxEVT_KILL_FOCUS, &TaskPanel::onNameFocusLost, this);
     checkbox->Bind(wxEVT_CHECKBOX, &TaskPanel::onCheckboxChanged, this);
+    duration->Bind(wxEVT_COMBOBOX_CLOSEUP, &TaskPanel::onTimeChanged,
+                   this);
 }
 
 void TaskPanel::onNameTextSelected(wxMouseEvent &evt) {
@@ -168,15 +172,28 @@ void TaskPanel::onCheckboxChanged(wxCommandEvent &evt) {
     parent->updateDatabase(task);
 }
 
+void TaskPanel::onTimeChanged(wxCommandEvent &evt) {
+    wxLogStatus("Updating task date to %s", duration->GetValue());
+
+    // Set both start and end date
+    wxDateTime s_dt = duration->getStartDateTime();
+    task.setStartDateTime(s_dt);
+
+    wxDateTime e_dt = duration->getEndDateTime();
+
+    task.setEndDateTime(e_dt);
+    parent->updateDatabase(task);
+
+    Layout();
+}
+
 void TaskPanel::setTask(Task new_task) {
     task = new_task;
     name->SetLabel(task.name);
     name_entry->SetValue(task.name);
 
-    wxDateTime dt;
-    dt.ParseDateTime(task.getStart());
-    wxLogStatus(dt.Format());
-    start_point->SetDateTime(dt);
+    duration->setStartDateTime(task.getStartDateTime());
+    duration->setEndDateTime(task.getEndDateTime());
 
     checkbox->SetValue(task.getCompleted());
 }

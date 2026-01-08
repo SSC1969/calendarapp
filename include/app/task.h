@@ -1,6 +1,7 @@
 #pragma once
-#include <chrono>
+#include <iostream>
 #include <string>
+#include <wx/datetime.h>
 
 class Task {
   public:
@@ -11,29 +12,21 @@ class Task {
     void setId(int id) { this->id = id; }
 
     std::string getStart() const {
-        return std::format("{:%F %R}", this->start_point);
-    }
-    void setStart(std::string start) {
-        std::stringstream stss(start);
-        stss >> std::chrono::parse("%F %R", this->start_point);
-    }
-    void setStartFromPoint(std::chrono::system_clock::time_point start) {
-        this->start_point = start;
+        return start_dt.Format("%F %R").ToStdString();
     }
 
-    std::optional<std::string> getDuration() const {
-        if (duration == std::chrono::duration<double>::zero()) {
-            return {};
-        }
-        return std::format("{:%T}", this->duration);
+    wxDateTime getStartDateTime() const { return start_dt; }
+
+    void setStart(std::string start) { start_dt.ParseDateTime(start); }
+    void setStartDateTime(wxDateTime &datetime) { start_dt = datetime; }
+
+    std::string getEnd() const {
+        return end_dt.Format("%F %R").ToStdString();
     }
-    void setDuration(std::optional<std::string> duration) {
-        if (!duration) {
-            return;
-        }
-        std::stringstream stss(duration.value());
-        stss >> std::chrono::parse("%T", this->duration);
-    }
+    wxDateTime getEndDateTime() const { return end_dt; }
+
+    void setEnd(std::string end) { end_dt.ParseDateTime(end); }
+    void setEndDateTime(wxDateTime &datetime) { end_dt = datetime; }
 
     bool getCompleted() const { return this->completed; }
     void setCompleted(bool completed) { this->completed = completed; }
@@ -41,15 +34,14 @@ class Task {
     friend std::ostream &operator<<(std::ostream &os, const Task &t) {
         return os << "[" << t.id << "](" << t.name << ", "
                   << t.description.value_or("none") << ", "
-                  << t.start_point << ", " << t.duration << ", "
-                  << t.completed << ")";
+                  << t.start_dt.Format() << ", " << t.end_dt.Format()
+                  << ", " << t.completed << ")";
     }
 
   private:
-    std::chrono::system_clock::time_point start_point =
-        std::chrono::system_clock::now();
-    std::chrono::duration<double> duration =
-        std::chrono::duration<double>::zero();
+    wxDateTime start_dt = wxDateTime::Now();
+    wxDateTime end_dt = start_dt;
+
     bool completed = false;
 
     int id = -1;

@@ -11,17 +11,14 @@
 void TodoPanel::createControls() {
     wxFont title_font(wxFontInfo(wxSize(0, 24)).Bold());
 
-    headline = new wxStaticText(this, wxID_ANY, "To-do:");
+    headline = new wxStaticText(this, wxID_ANY, "To-Do:");
     headline->SetFont(title_font);
 
     task_input =
         new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition,
                        wxDefaultSize, wxTE_PROCESS_ENTER);
 
-    create_task_button =
-        new wxButton(this, wxID_ANY, "Add", wxDefaultPosition,
-                     wxDefaultSize, wxBU_AUTODRAW);
-
+    create_task_button = new wxButton(this, wxID_ADD);
     task_panel = new TaskListPanel(this);
 }
 

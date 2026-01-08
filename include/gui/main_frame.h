@@ -8,6 +8,10 @@
 class MainFrame : public wxFrame {
   public:
     MainFrame(const wxString &title);
+    ~MainFrame() {
+        wxLog::SetActiveTarget(nullptr);
+        delete logger;
+    };
 
   private:
     // Setup methods
@@ -20,6 +24,8 @@ class MainFrame : public wxFrame {
     // Other private methods
 
     // Control members
+    wxLog *logger;
+
     wxPanel *panel;
     wxNotebook *notebook;
     wxPanel *todo_border;

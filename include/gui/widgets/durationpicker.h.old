@@ -1,0 +1,86 @@
+#pragma once
+#include <string>
+#include <wx/calctrl.h>
+#include <wx/combo.h>
+#include <wx/timectrl.h>
+#include <wx/wx.h>
+
+// Code heavily based on
+// https://forums.wxwidgets.org/viewtopic.php?p=186665#p186665 Thanks, PB!
+class wxCustomDurationPicker;
+
+class wxCustomDurationPickerPopup : public wxPanel, public wxComboPopup {
+  public:
+    bool Create(wxWindow *parent) wxOVERRIDE;
+
+    wxWindow *GetControl() wxOVERRIDE { return this; }
+    wxString GetStringValue() const wxOVERRIDE;
+    wxSize GetAdjustedSize(int minWidth, int prefHeight,
+                           int maxHeight) wxOVERRIDE;
+
+    void OnPopup() wxOVERRIDE;
+
+    static wxString GetDisplayDateTimeString(const wxDateTime &dateTime,
+                                             bool year = false);
+
+    wxDateTime GetStartDateTime() const;
+    wxDateTime GetEndDateTime() const;
+
+  private:
+    wxBoxSizer *main_sizer;
+    wxBoxSizer *top_sizer;
+    wxBoxSizer *bottom_sizer;
+
+    wxStaticText *start_text;
+    wxStaticText *end_text;
+    wxButton *end_button;
+    wxCalendarCtrl *calender;
+    wxTimePickerCtrl *timepicker;
+    wxButton *ok_button;
+
+    std::string selected;
+    wxDateTime start_dt;
+    wxDateTime end_dt;
+
+    wxCustomDurationPicker *GetCustomDurationPicker();
+
+    wxDateTime GetWidgetDateTime() const;
+
+    void SetStartDateTime(const wxDateTime &dateTime,
+                          bool update_parent = true);
+    void SetEndDateTime(const wxDateTime &dateTime,
+                        bool update_parent = true);
+
+    void SetWidgetDateTime(const wxDateTime &dateTime);
+
+    void UpdateSelectedText();
+    void SetSelection(std::string str);
+
+    // Event handlers
+    void OnOKButtonClicked(wxCommandEvent &);
+    void OnStartTextClicked(wxMouseEvent &);
+    void OnEndTextClicked(wxMouseEvent &);
+    void OnCalendarChanged(wxCalendarEvent &);
+    void OnTimePickerChanged(wxDateEvent &);
+};
+
+class wxCustomDurationPicker : public wxComboCtrl {
+  public:
+    wxCustomDurationPicker(wxWindow *parent,
+                           const wxDateTime &start = wxDateTime::Now(),
+                           const wxDateTime &end = wxDefaultDateTime);
+
+    wxDateTime GetStartDateTime() const { return start_dt; }
+    wxDateTime GetEndDateTime() const { return end_dt; }
+
+    void SetStartDateTime(const wxDateTime &dateTime);
+    void SetEndDateTime(const wxDateTime &dateTime);
+
+    wxString GetDurationString() const;
+    void UpdateText();
+
+  private:
+    wxDateTime start_dt;
+    wxDateTime end_dt;
+    wxCustomDurationPickerPopup *popup;
+};
